@@ -201,7 +201,8 @@ self.addEventListener('install', function(event) {
       .skipWaiting()
       .then(function () {
         features = runTests(es6)
-        console.log('ran es6 feature tests', features)
+        console.log('ran es6 feature tests')
+        console.log('default parameters supported?', features.defaultParameter)
       })
   );
 });
@@ -216,7 +217,6 @@ self.addEventListener('fetch', function (event) {
 		return fetch(event.request)
 	}
 
-  console.log('fetching app.js')
   event.respondWith(
     fetch(event.request)
       .then(function (response) {
